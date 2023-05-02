@@ -1,4 +1,3 @@
-import owaspRuleset from '@stoplight/spectral-owasp-ruleset';
 declare const _default: {
     extends: ({
         documentationUrl: string;
@@ -79,7 +78,7 @@ declare const _default: {
                 given: string[];
                 then: {
                     field: string;
-                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<unknown, import("@stoplight/spectral-rulesets/dist/oas/functions/oasSchema.js").Options>;
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<unknown, import("@stoplight/spectral-rulesets/dist/oas/functions/oasSchema").Options>;
                     functionOptions: {
                         schema: {
                             type: string;
@@ -417,7 +416,7 @@ declare const _default: {
                 severity: number;
                 given: string[];
                 then: {
-                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<Record<string, unknown>, import("@stoplight/spectral-rulesets/dist/oas/functions/oasExample.js").Options>;
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<Record<string, unknown>, import("@stoplight/spectral-rulesets/dist/oas/functions/oasExample").Options>;
                     functionOptions: {
                         schemaField: string;
                         oasVersion: number;
@@ -433,7 +432,7 @@ declare const _default: {
                 severity: number;
                 given: string;
                 then: {
-                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<Record<string, unknown>, import("@stoplight/spectral-rulesets/dist/oas/functions/oasExample.js").Options>;
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<Record<string, unknown>, import("@stoplight/spectral-rulesets/dist/oas/functions/oasExample").Options>;
                     functionOptions: {
                         schemaField: string;
                         oasVersion: number;
@@ -577,7 +576,7 @@ declare const _default: {
                 formats: import("@stoplight/spectral-core").Format<void>[];
                 given: string[];
                 then: {
-                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<Record<string, unknown>, import("@stoplight/spectral-rulesets/dist/oas/functions/oasExample.js").Options>;
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<Record<string, unknown>, import("@stoplight/spectral-rulesets/dist/oas/functions/oasExample").Options>;
                     functionOptions: {
                         schemaField: string;
                         oasVersion: number;
@@ -593,7 +592,7 @@ declare const _default: {
                 recommended: boolean;
                 given: string[];
                 then: {
-                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<Record<string, unknown>, import("@stoplight/spectral-rulesets/dist/oas/functions/oasExample.js").Options>;
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<Record<string, unknown>, import("@stoplight/spectral-rulesets/dist/oas/functions/oasExample").Options>;
                     functionOptions: {
                         schemaField: string;
                         oasVersion: number;
@@ -625,6 +624,376 @@ declare const _default: {
                 };
             };
         };
-    } | typeof owaspRuleset)[];
+    } | {
+        formats: import("@stoplight/spectral-core").Format<void>[];
+        aliases: {
+            ArrayProperties: {
+                targets: {
+                    formats: import("@stoplight/spectral-core").Format<void>[];
+                    given: string[];
+                }[];
+            };
+            IntegerProperties: {
+                targets: {
+                    formats: import("@stoplight/spectral-core").Format<void>[];
+                    given: string[];
+                }[];
+            };
+            StringProperties: {
+                targets: {
+                    formats: import("@stoplight/spectral-core").Format<void>[];
+                    given: string[];
+                }[];
+            };
+        };
+        rules: {
+            "owasp:api1:2019-no-numeric-ids": {
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                given: string;
+                then: {
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<unknown, import("@stoplight/spectral-functions").SchemaOptions>;
+                    functionOptions: {
+                        schema: {
+                            type: string;
+                            not: {
+                                properties: {
+                                    type: {
+                                        const: string;
+                                    };
+                                };
+                            };
+                            properties: {
+                                format: {
+                                    const: string;
+                                };
+                            };
+                        };
+                    };
+                };
+            };
+            "owasp:api2:2019-no-http-basic": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                given: string;
+                then: {
+                    field: string;
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<string, import("@stoplight/spectral-functions").PatternOptions>;
+                    functionOptions: {
+                        notMatch: string;
+                    };
+                };
+            };
+            "owasp:api2:2019-no-api-keys-in-url": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                formats: import("@stoplight/spectral-core").Format<void>[];
+                given: string[];
+                then: {
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<string, import("@stoplight/spectral-functions").PatternOptions>;
+                    functionOptions: {
+                        notMatch: string;
+                    };
+                }[];
+            };
+            "owasp:api2:2019-no-credentials-in-url": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                formats: import("@stoplight/spectral-core").Format<void>[];
+                given: string[];
+                then: {
+                    field: string;
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<string, import("@stoplight/spectral-functions").PatternOptions>;
+                    functionOptions: {
+                        notMatch: string;
+                    };
+                }[];
+            };
+            "owasp:api2:2019-auth-insecure-schemes": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                formats: import("@stoplight/spectral-core").Format<void>[];
+                given: string[];
+                then: {
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<string, import("@stoplight/spectral-functions").PatternOptions>;
+                    functionOptions: {
+                        notMatch: string;
+                    };
+                }[];
+            };
+            "owasp:api2:2019-jwt-best-practices": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                given: string[];
+                then: ({
+                    field: string;
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<unknown, null>;
+                    functionOptions?: undefined;
+                } | {
+                    field: string;
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<string, import("@stoplight/spectral-functions").PatternOptions>;
+                    functionOptions: {
+                        match: string;
+                    };
+                })[];
+            };
+            "owasp:api2:2019-protection-global-unsafe": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                given: string;
+                then: {
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<any, any>;
+                    functionOptions: {
+                        schemesPath: string[];
+                        nullable: boolean;
+                        methods: string[];
+                    };
+                }[];
+            };
+            "owasp:api2:2019-protection-global-unsafe-strict": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                given: string;
+                then: {
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<any, any>;
+                    functionOptions: {
+                        schemesPath: string[];
+                        nullable: boolean;
+                        methods: string[];
+                    };
+                }[];
+            };
+            "owasp:api2:2019-protection-global-safe": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                given: string;
+                then: {
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<any, any>;
+                    functionOptions: {
+                        schemesPath: string[];
+                        nullable: boolean;
+                        methods: string[];
+                    };
+                }[];
+            };
+            "owasp:api3:2019-define-error-validation": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                given: string;
+                then: {
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<unknown, import("@stoplight/spectral-functions").SchemaOptions>;
+                    functionOptions: {
+                        schema: {
+                            type: string;
+                            anyOf: {
+                                required: string[];
+                            }[];
+                        };
+                    };
+                }[];
+            };
+            "owasp:api3:2019-define-error-responses-401": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                given: string;
+                then: {
+                    field: string;
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<unknown, null>;
+                }[];
+            };
+            "owasp:api3:2019-define-error-responses-500": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                given: string;
+                then: {
+                    field: string;
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<unknown, null>;
+                }[];
+            };
+            "owasp:api4:2019-rate-limit": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                formats: import("@stoplight/spectral-core").Format<void>[];
+                given: string;
+                then: {
+                    field: string;
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<unknown, import("@stoplight/spectral-functions").SchemaOptions>;
+                    functionOptions: {
+                        schema: {
+                            type: string;
+                            oneOf: {
+                                required: string[];
+                            }[];
+                        };
+                    };
+                };
+            };
+            "owasp:api4:2019-rate-limit-retry-after": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                formats: import("@stoplight/spectral-core").Format<void>[];
+                given: string;
+                then: {
+                    field: string;
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<unknown, null>;
+                };
+            };
+            "owasp:api4:2019-rate-limit-responses-429": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                given: string;
+                then: {
+                    field: string;
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<unknown, null>;
+                }[];
+            };
+            "owasp:api4:2019-array-limit": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                given: string;
+                then: {
+                    field: string;
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<unknown, null>;
+                };
+            };
+            "owasp:api4:2019-string-limit": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                given: string;
+                then: {
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<unknown, import("@stoplight/spectral-functions").SchemaOptions>;
+                    functionOptions: {
+                        schema: {
+                            type: string;
+                            oneOf: {
+                                required: string[];
+                            }[];
+                        };
+                    };
+                };
+            };
+            "owasp:api4:2019-string-restricted": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                given: string;
+                then: {
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<unknown, import("@stoplight/spectral-functions").SchemaOptions>;
+                    functionOptions: {
+                        schema: {
+                            type: string;
+                            oneOf: {
+                                required: string[];
+                            }[];
+                        };
+                    };
+                };
+            };
+            "owasp:api4:2019-integer-limit": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                formats: import("@stoplight/spectral-core").Format<void>[];
+                given: string;
+                then: {
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<Record<string, unknown>, import("@stoplight/spectral-functions").XorOptions>;
+                    functionOptions: {
+                        properties: string[];
+                    };
+                }[];
+            };
+            "owasp:api4:2019-integer-limit-legacy": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                formats: import("@stoplight/spectral-core").Format<void>[];
+                given: string;
+                then: {
+                    field: string;
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<unknown, null>;
+                }[];
+            };
+            "owasp:api4:2019-integer-format": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                given: string;
+                then: {
+                    field: string;
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<unknown, null>;
+                }[];
+            };
+            "owasp:api6:2019-no-additionalProperties": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                formats: import("@stoplight/spectral-core").Format<void>[];
+                given: string;
+                then: {
+                    field: string;
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<unknown, null>;
+                }[];
+            };
+            "owasp:api6:2019-constrained-additionalProperties": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                formats: import("@stoplight/spectral-core").Format<void>[];
+                given: string;
+                then: {
+                    field: string;
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<unknown, null>;
+                }[];
+            };
+            "owasp:api7:2019-security-hosts-https-oas2": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                formats: import("@stoplight/spectral-core").Format<void>[];
+                given: string;
+                then: {
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<unknown, import("@stoplight/spectral-functions").SchemaOptions>;
+                    functionOptions: {
+                        schema: {
+                            type: string;
+                            items: {
+                                type: string;
+                                const: string;
+                            };
+                        };
+                    };
+                };
+            };
+            "owasp:api7:2019-security-hosts-https-oas3": {
+                message: string;
+                description: string;
+                severity: import("@stoplight/types").DiagnosticSeverity;
+                formats: import("@stoplight/spectral-core").Format<void>[];
+                given: string;
+                then: {
+                    function: import("@stoplight/spectral-core").RulesetFunctionWithValidator<string, import("@stoplight/spectral-functions").PatternOptions>;
+                    functionOptions: {
+                        match: string;
+                    };
+                };
+            };
+        };
+    })[];
 };
 export default _default;

@@ -11,8 +11,8 @@
     }
   },
   "scripts": {
-    "build": "webpack --mode=production",
-    "type-check": "tsc --noEmit --noErrorTruncation --pretty false --incremental false"
+    "build": "rollup -c",
+    "type-check": "tsc --noEmit --noErrorTruncation"
   },
   "keywords": [],
   "license": "MIT",
@@ -21,13 +21,17 @@
     "@stoplight/spectral-rulesets": "^1.16.0"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.1.0",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@rollup/plugin-terser": "^0.4.1",
+    "@rollup/plugin-typescript": "^11.1.0",
     "@sindresorhus/tsconfig": "^3.0.1",
     "@stoplight/spectral-formats": "^1.5.0",
     "@stoplight/spectral-functions": "^1.7.2",
     "@stoplight/types": "^13.8.0",
+    "rollup": "^3.21.3",
     "ts-loader": "^9.4.2",
-    "typescript": "^4.9.5",
-    "webpack": "^5.81.0",
-    "webpack-cli": "^5.0.2"
+    "typescript": "^4.9.5"
   }
 }
